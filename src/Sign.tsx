@@ -15,7 +15,7 @@ function Sign() {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      const currentUser = auth.currentUser;
+    //   const currentUser = auth.currentUser;
 
       setEmail("");
       setPassword("");

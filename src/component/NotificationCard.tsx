@@ -12,7 +12,6 @@ export interface NotificationCardProps {
 }
 
 const NotificationCard: React.FC<NotificationCardProps> = ({
-  id,
   fname,
   lname,
   branch,

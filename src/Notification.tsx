@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   onSnapshot,
   collection,
@@ -8,9 +8,7 @@ import {
 } from "firebase/firestore";
 import { auth } from "./firebase";
 import db from "./firebase";
-import NotificationCard, {
-  NotificationCardProps,
-} from "./component/NotificationCard";
+import NotificationCard from "./component/NotificationCard";
 import Navbar from "./component/Navbar";
 
 interface NotificationData {

@@ -18,7 +18,7 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      const currentUser = auth.currentUser;
+      // const currentUser = auth.currentUser;
       // console.log(currentUser);
 
       setEmail("");
