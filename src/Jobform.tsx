@@ -27,7 +27,7 @@ function Jobform() {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -120,10 +120,9 @@ function Jobform() {
               >
                 Job Description
               </label>
-              <input
+              <textarea
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="jobDescription"
-                type="text" // Change the input type to "text"
                 placeholder="Job Description"
                 value={formData.jobDescription}
                 onChange={handleChange}
@@ -139,10 +138,9 @@ function Jobform() {
               >
                 Job Requirement
               </label>
-              <input
+              <textarea
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="jobRequirement"
-                type="text" // Change the input type to "text"
                 placeholder="Job Requirement"
                 value={formData.jobRequirement}
                 onChange={handleChange}
