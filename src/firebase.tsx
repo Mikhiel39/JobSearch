@@ -6,12 +6,12 @@ import "firebase/compat/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBmtoVkUN3aCBI3KhiOKx1ggLpmKykE-tA",
-  authDomain: "jobsearch-c3504.firebaseapp.com",
-  projectId: "jobsearch-c3504",
-  storageBucket: "jobsearch-c3504.appspot.com",
-  messagingSenderId: "755425225481",
-  appId: "1:755425225481:web:7b7788e4a405c91874c1d8",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
 };
 
 // Initialize Firebase
