@@ -38,7 +38,7 @@ const ApplicationForm = () => {
         LastName: formData.LastName,
         UniversityName: formData.UniversityName,
         PhoneNumber: formData.PhoneNumber,
-        EmailID: formData.EmailID,
+        EmailID: formData.EmailID || (currentUser ? currentUser.email : ""),
         Branch: formData.Branch,
         Skills: formData.Skills,
         creator_id: creatorId,
@@ -65,7 +65,7 @@ const ApplicationForm = () => {
     return (
       <Navbar
         title={currentUser ? "Notification" : "Login"}
-        job="Create_Jobs"
+        job="Create Jobs"
       />
     );
   };
@@ -169,25 +169,27 @@ const ApplicationForm = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-2 mb-6">
-              <div className="w-full px-2">
-                <label
-                  className="block uppercase tracking-wide text-slate-100 text-xs font-bold mb-2"
-                  htmlFor="jobRequirement"
-                >
-                  EmailID
-                </label>
-                <input
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="EmailID"
-                  type="email" // Change the input type to "text"
-                  placeholder="EmailID"
-                  value={formData.EmailID}
-                  onChange={handleChange}
-                  required
-                />
+            {currentUser ? null : (
+              <div className="flex flex-wrap -mx-2 mb-6">
+                <div className="w-full px-2">
+                  <label
+                    className="block uppercase tracking-wide text-slate-100 text-xs font-bold mb-2"
+                    htmlFor="EmailID"
+                  >
+                    EmailID
+                  </label>
+                  <input
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="EmailID"
+                    type="email" // Change the input type to "email"
+                    placeholder="EmailID"
+                    value={formData.EmailID}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-            </div>
+            )}
             <div className="flex flex-wrap -mx-2 mb-6">
               <div className="w-full px-2">
                 <label

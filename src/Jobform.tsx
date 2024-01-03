@@ -72,7 +72,7 @@ function Jobform() {
     <div className="flex flex-col justify-center min-h-screen from-purple-900 via-indigo-800 to-indigo-500 bg-gradient-to-br">
       <Navbar
         title={currentUser ? "Notification" : "Login"}
-        job="Create_Jobs"
+        job="Create Jobs"
       />
       <div className="flex items-center mt-20">
         <form className="w-full ml-20 mr-20 mb-20" onSubmit={handleSubmit}>

@@ -77,7 +77,7 @@ export default function Notification() {
     return (
       <Navbar
         title={currentUser ? "Notification" : "Login"}
-        job="Create_Jobs"
+        job="Create Jobs"
       />
     );
   };
