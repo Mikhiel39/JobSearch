@@ -19,7 +19,7 @@ const ApplicationForm = () => {
     Skills: "",
   });
 
-  const currentUser = auth.currentUser;
+  const {currentUser} = auth;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({

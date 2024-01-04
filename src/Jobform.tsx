@@ -15,7 +15,7 @@ interface FormData {
 }
 
 function Jobform() {
-  const currentUser = auth.currentUser;
+  const {currentUser} = auth;
   const [formData, setFormData] = useState<FormData>({
     jobTitle: "",
     company: "",
@@ -160,7 +160,7 @@ function Jobform() {
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="city"
                 type="text"
-                placeholder="Mumbai"
+                placeholder="City"
                 value={formData.city}
                 onChange={handleChange}
               />
@@ -180,10 +180,33 @@ function Jobform() {
                   onChange={handleChange}
                   required
                 >
-                  <option>Maharashtra</option>
+                  <option>Andhra Pradesh</option>
+                  <option>Arunachal Pradesh</option>
+                  <option>Assam</option>
+                  <option>Bihar</option>
+                  <option>Chhattisgarh</option>
+                  <option>Goa</option>
+                  <option>Gujarat</option>
+                  <option>Haryana</option>
+                  <option>Himachal Pradesh</option>
+                  <option>Jharkhand</option>
                   <option>Karnataka</option>
+                  <option>Kerala</option>
+                  <option>Madhya Pradesh</option>
+                  <option>Maharashtra</option>
+                  <option>Manipur</option>
+                  <option>Meghalaya</option>
+                  <option>Mizoram</option>
+                  <option>Nagaland</option>
+                  <option>Punjab</option>
+                  <option>Rajasthan</option>
+                  <option>Sikkim</option>
+                  <option>Tamil Nadu</option>
                   <option>Telangana</option>
-                  <option>Delhi</option>
+                  <option>Tripura</option>
+                  <option>Uttar Pradesh</option>
+                  <option>Uttarakhand</option>
+                  <option>West Bengal</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg

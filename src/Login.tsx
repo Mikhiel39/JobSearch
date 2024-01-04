@@ -42,7 +42,7 @@ function Login() {
   };
 
   const renderNavbar = () => {
-    const currentUser = auth.currentUser; // Define currentUser in the scope of the function
+    const {currentUser} = auth; // Define currentUser in the scope of the function
     return (
       <Navbar
         title={currentUser ? "Notification" : "Login"}

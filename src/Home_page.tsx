@@ -27,21 +27,20 @@ function Home_page() {
     const fetchJobs = async () => {
       setLoading(true);
       const jobsCollection = collection(db, "jobs");
-      const unsubscribe = onSnapshot(jobsCollection, (querySnapshot) => {
-        const items = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Job[]; // Cast the result to Job[]
-        setJobs(items);
-        setLoading(false);
-      });
-      return unsubscribe;
+      return onSnapshot(jobsCollection, (querySnapshot) => {
+              const items = querySnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+              })) as Job[]; // Cast the result to Job[]
+              setJobs(items);
+              setLoading(false);
+            });
     };
 
     fetchJobs();
   }, []);
 
-  const currentUser = auth.currentUser;
+  const {currentUser} = auth;
   console.log(currentUser?.email);
 
   const renderNavbar = () => {
