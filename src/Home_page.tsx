@@ -41,7 +41,7 @@ function Home_page() {
   }, []);
 
   const {currentUser} = auth;
-  console.log(currentUser?.email);
+  // console.log(currentUser?.email);
 
   const renderNavbar = () => {
     return (

@@ -4,11 +4,14 @@ import db from "./firebase";
 import { auth } from "./firebase";
 import Navbar from "./component/Navbar";
 import { useSearchParams } from "react-router-dom";
+import { Resend } from "resend";
+import Welcome from "./welcome";
 import "./index.css";
 
 const ApplicationForm = () => {
-  const [searchparams] = useSearchParams()!;
+  const [searchparams] = useSearchParams();
   const creatorId = searchparams.get("id");
+  const resend = new Resend(import.meta.env.VITE_EMAIL_ID_API);
   const [formData, setFormData] = useState({
     FirstName: "",
     LastName: "",
@@ -19,7 +22,7 @@ const ApplicationForm = () => {
     Skills: "",
   });
 
-  const {currentUser} = auth;
+  const { currentUser } = auth;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -27,10 +30,22 @@ const ApplicationForm = () => {
       [id]: value,
     }));
   };
+  const sendMail = async () => {
+    try {
+      resend.emails.send({
+        from: "you@example.com",
+        to: "user@gmail.com",
+        subject: "hello world",
+        react: <Welcome />,
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    await sendMail();
     try {
       const jobsCollection = collection(db, "notifications");
       await addDoc(jobsCollection, {
@@ -176,7 +191,7 @@ const ApplicationForm = () => {
                     className="block uppercase tracking-wide text-slate-100 text-xs font-bold mb-2"
                     htmlFor="EmailID"
                   >
-                    EmailID
+                    Email ID
                   </label>
                   <input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -196,7 +211,7 @@ const ApplicationForm = () => {
                   className="block uppercase tracking-wide text-slate-100 text-xs font-bold mb-2"
                   htmlFor="jobRequirement"
                 >
-                  PhoneNumber
+                  Phone Number
                 </label>
                 <input
                   className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
